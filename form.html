@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accident Report Form</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .custom-navbar {
+            background-color: #fff;
+        }
+
+        .custom-logo {
+            width: 6.8em;
+        }
+
+        #map {
+            height: 400px;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow custom-navbar">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img class="custom-logo" src="./Photos/logo.png" alt="Accident">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="./index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./About.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./Contact.html">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Suggestion</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./map.html">Find Safe Route</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Accident Report Form -->
+    <div class="container mt-5 pt-5">
+        <h1 class="text-center mb-4">Accident Report Form</h1>
+        <div class="bg-white p-4 rounded shadow-lg">
+            <form id="accidentForm" class="needs-validation" novalidate>
+                <!-- Starting Location -->
+                <div class="form-group">
+                    <label for="startLocation">Starting Location</label>
+                    <input type="text" id="startLocation" class="form-control" placeholder="Enter starting location" required>
+                    <div class="invalid-feedback">Please enter a starting location.</div>
+                </div>
+
+                <!-- Ending Location -->
+                <div class="form-group">
+                    <label for="endLocation">Ending Location</label>
+                    <input type="text" id="endLocation" class="form-control" placeholder="Enter ending location" required>
+                    <div class="invalid-feedback">Please enter an ending location.</div>
+                </div>
+
+                <!-- Exact Location -->
+                <div class="form-group">
+                    <label for="exactLocation">Exact Location</label>
+                    <input type="text" id="exactLocation" class="form-control" placeholder="Click to select on map" readonly required>
+                    <button type="button" id="selectLocationBtn" class="btn btn-success mt-2">Select Location on Map</button>
+                </div>
+
+                <!-- Area Cover -->
+                <div class="form-group">
+                    <label for="areaCover">Area Cover (km²)</label>
+                    <input type="number" id="areaCover" class="form-control" placeholder="Enter area covered in km²" required>
+                    <div class="invalid-feedback">Please enter the area covered.</div>
+                </div>
+
+                <!-- Reason for Accident -->
+                <div class="form-group">
+                    <label for="reason">Reason for Accident</label>
+                    <textarea id="reason" class="form-control" placeholder="Describe the reason for accident" rows="3" required></textarea>
+                    <div class="invalid-feedback">Please provide a reason for the accident.</div>
+                </div>
+
+                <!-- Date & Time -->
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="accidentDate">Date</label>
+                        <input type="date" id="accidentDate" class="form-control" required>
+                        <div class="invalid-feedback">Please select a date.</div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="accidentTime">Time</label>
+                        <input type="time" id="accidentTime" class="form-control" required>
+                        <div class="invalid-feedback">Please select a time.</div>
+                    </div>
+                </div>
+
+                <!-- Photo Upload -->
+                <div class="form-group">
+                    <label for="mediaUpload">Upload Photo</label>
+                    <input type="file" id="mediaUpload" class="form-control-file" accept="image/*">
+                </div>
+
+                <!-- Report Button -->
+                <button type="submit" class="btn btn-primary">Report</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Map Modal -->
+    <div id="mapModal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Select Location on Map</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="map"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="closeMapModal" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    <button type="button" id="selectLocationConfirm" class="btn btn-primary">Confirm Location</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="form.js"></script> <!-- Link to your external JS file -->
+</body>
+
+</html>

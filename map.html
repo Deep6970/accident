@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Route Finder with Weather & Traffic Graphs</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        #map {
+            height: 500px;
+        }
+
+        #chartsContainer {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        canvas {
+            width: 100%;
+            height: 200px;
+        }
+
+        .custom-logo {
+            width: 6.8em;
+        }
+
+        .text-primary {
+            color: #007bff !important;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img class="custom-logo" src="./Photos/logo.png" alt="Accident">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" style="font-size: 1.3em; gap: 10px; font-weight: bold;" href="./index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link"  style="font-size: 1.3em; gap: 10px; font-weight: bold;" href="./About.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link"  style="font-size: 1.3em; gap: 10px; font-weight: bold;" href="./Contact.html">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link"  style="font-size: 1.3em; gap: 10px; font-weight: bold;" href="#">Suggestion</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link"  style="font-size: 1.3em; gap: 10px; font-weight: bold;" href="./map.html">Find Safe Route</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container my-5">
+        <h1 class="text-center mb-4 text-primary">Route Finder with Weather, Traffic & Accident Graphs</h1>
+
+        <!-- Input Form -->
+        <div class="bg-white shadow-md rounded-lg p-4 mb-5">
+            <div class="form-group">
+                <label for="fromLocation" class="font-weight-bold">From:</label>
+                <input type="text" id="fromLocation" class="form-control" placeholder="Enter start location">
+            </div>
+
+            <div class="form-group">
+                <label for="toLocation" class="font-weight-bold">To:</label>
+                <input type="text" id="toLocation" class="form-control" placeholder="Enter end location">
+            </div>
+
+            <button id="searchRouteBtn" class="btn btn-primary btn-block">Find Route</button>
+        </div>
+
+        <!-- Map -->
+        <div class="bg-white shadow-md rounded-lg overflow-hidden mb-4">
+            <div id="map"></div>
+        </div>
+
+        <!-- Distance Information -->
+        <div id="distanceDisplay" class="text-center text-xl font-weight-bold text-primary mt-4"></div>
+
+        <!-- Chart Container -->
+        <div id="chartsContainer" class="row mt-4">
+            <div class="col-md-4 mb-3">
+                <div class="bg-white shadow-lg rounded-lg p-3">
+                    <h2 class="h5 font-weight-bold text-center">Weather Analysis</h2>
+                    <canvas id="weatherChart"></canvas>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <div class="bg-white shadow-lg rounded-lg p-3">
+                    <h2 class="h5 font-weight-bold text-center">Traffic Analysis</h2>
+                    <canvas id="trafficChart"></canvas>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <div class="bg-white shadow-lg rounded-lg p-3">
+                    <h2 class="h5 font-weight-bold text-center">Accident Analysis</h2>
+                    <canvas id="accidentChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="map.js"></script>
+</body>
+
+</html>

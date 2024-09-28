@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NIKE REACT | Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    <style>
+        /* Custom styles for the header and h1 */
+        #header {
+            position: relative;
+            height: 100vh; /* Full height for the header */
+            display: flex;
+            align-items: center; /* Center vertically */
+            justify-content: center; /* Center horizontally */
+            text-align: center;
+            background-color: #fff9f4; /* Background color */
+        }
+
+        h1 {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 3rem; /* Font size */
+            color: #333; /* Text color */
+            opacity: 0; /* Start hidden for animation */
+        }
+
+        .icon {
+            margin-left: 10px; /* Space between text and icon */
+            font-size: 2rem; /* Size of the icon */
+            color: #333; /* Icon color */
+        }
+        footer {
+  transition: background-color 0.5s;
+}
+
+footer:hover {
+  background-color: #212529; /* Darker shade on hover */
+}
+
+footer h5 {
+  color: #f8f9fa; /* Light text */
+}
+
+footer a {
+  transition: all 0.3s;
+}
+
+footer a:hover {
+  color: #007bff; /* Bootstrap primary color on hover */
+  text-decoration: underline;
+}
+
+.hover-underline-animation {
+  position: relative;
+  color: #f8f9fa; /* Light text */
+}
+
+.hover-underline-animation::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: #007bff; /* Blue underline */
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.hover-underline-animation:hover::after {
+  transform: scaleX(1);
+}
+
+    
+    </style>
+</head>
+<body>
+    <!-- header -->
+    <header id="header">
+        <!-- navigation -->
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow custom-navbar">
+            <div class="container container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">
+                        <img class="img-responsive custom-logo" src="./Photos/logo.png" alt="accedent" style="width: 6.8em;">
+                    </a>
+                    <button class="navbar-toggler float-end" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="nav navbar-nav ms-auto custom-ul">
+                        <li class="nav-item custom-li">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                    
+                        <li class="nav-item custom-li">
+                            <a class="nav-link" href="./About.html">About us</a>
+                        </li>
+                        <li class="nav-item custom-li">
+                            <a class="nav-link" href="./Contact.html">Contact us</a>
+                        </li>
+                        <li class="nav-item custom-li">
+                            <a class="nav-link" href="./form.html">suggestion</a>
+                        </li>
+                        <li class="nav-item custom-li">
+                            <a class="nav-link" href="./map.html">Find Safe root</a>
+                        </li>
+                    </ul>   
+                </div>
+            </div>
+        </nav>
+        <!-- end navigation -->
+        <video src="./Photos/fi.mp4" autoplay loop width="100%"></video>
+        
+        <!-- cover section -->
+    </header>
+    <br>
+    <div>
+        <h1 id="animatedText" style="background-color: #fff9f4; text-align: center;">This is a serious problem, we need to think about it <i class="fas fa-exclamation-circle icon"></i></h1>
+        <div id="description" class="mt-3">
+            <p style="text-align: center;font-size: 25px;">Let's collaborate to find effective solutions that will make a real impact in our community.</p>
+        </div>
+    </div>
+    <!-- end header -->
+
+    <!-- main -->
+     <br><br><br>
+    <main class="container">
+        <!-- casual shoes section -->
+
+        <!-- end casual shoes section -->
+
+        <!-- formal shoes section -->
+
+        <!-- end formal shoes section -->
+
+        <!-- services section -->
+        <section id="services" class="mt-5">
+            <div class="row g-2 justify-content-around">
+                <div class="col-md-6 d-flex justify-content-center align-items-center order-1">
+                    <div class="col">
+                        <div class="card p-3 mb-3 custom-service-card" style="max-width: 540px;">
+                            <div class="row g-0">
+                                <div class="col-md-4 gy-3">
+                                    <img class="mx-auto d-block custom-img-width" src="Photos/traffic.jpeg" style="width: 100%;"  alt="Traffic Data">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body custom-text">
+                                        <h5 class="card-title">Real-Time Traffic Data</h5>
+                                        <p class="card-text">Access real-time traffic data to identify accident-prone zones and prevent potential incidents.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card p-3 mb-3 custom-service-card" style="max-width: 540px;">
+                            <div class="row g-0">
+                                <div class="col-md-4 gy-3">
+                                    <img class="mx-auto d-block custom-img-width" style="width: 100%;"  src="Photos/safety.jpeg" alt="Safety Tips">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Personalized Safety Tips</h5>
+                                        <p class="card-text">Receive automated safety recommendations based on identified accident-prone areas near you.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card p-3 mb-3 custom-service-card" style="max-width: 540px;">
+                            <div class="row g-0">
+                                <div class="col-md-4 gy-3">
+                                    <img class="mx-auto d-block custom-img-width"  style="width: 100%;" src="Photos/userreport.jpeg" alt="Reporting System">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title">User Reporting System</h5>
+                                        <p class="card-text">Report accidents or near-misses directly through our platform to contribute to community road safety.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col order-lg-2">
+                    <img class="mx-auto d-block w-100" src="./Photos/2.jpg" alt="Accident Hotspot Map">
+                </div>
+            </div>
+        </section>
+        
+        <!-- end services section -->
+
+        <!-- subscribe section -->
+        <section id="subscribe" class="mt-5 mb-5">
+            <div class="row d-flex justify-content-center align-items-center">
+                <div class="col-md-12">
+                    <div class="card custom-card">
+                        <div class="text-center">
+                            <h4 class="d-block mt-3 text-uppercase">FInd your best & Safe Root </h4>
+                            <div class="m-5">
+                                <div class="input-group mb-3 mt-4  " style="justify-content: center;">
+                                    <button class="btn btn-success border-rad custom-btn" type="button" id="button-addon2">Find your location</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end subscribe section -->
+    </main>
+    <!-- end main -->
+
+    <!-- footer -->
+  <!-- Footer -->
+<!-- Footer -->
+<footer class="bg-dark text-white mt-5">
+    <div class="container p-4">
+      <div class="row text-center text-md-left">
+        <div class="col-md-4 mb-4">
+          <h5 class="text-uppercase mb-4">Contact Us</h5>
+          <p>
+            If you have any questions or feedback, feel free to reach out to us!
+          </p>
+          <p><strong>Email:</strong> info@example.com</p>
+          <p><strong>Phone:</strong> +123 456 7890</p>
+        </div>
+  
+        <div class="col-md-4 mb-4">
+          <h5 class="text-uppercase mb-4">Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="#!" class="text-white hover-underline-animation">Home</a></li>
+            <li><a href="#!" class="text-white hover-underline-animation">About Us</a></li>
+            <li><a href="#!" class="text-white hover-underline-animation">Services</a></li>
+            <li><a href="#!" class="text-white hover-underline-animation">Contact</a></li>
+          </ul>
+        </div>
+  
+        <div class="col-md-4 mb-4">
+          <h5 class="text-uppercase mb-4">Subscribe to our Newsletter</h5>
+          <form action="#">
+            <div class="input-group mb-3">
+              <input type="email" class="form-control" placeholder="Your email" required>
+              <div class="input-group-append">
+                <button type="submit" class="btn btn-primary">Subscribe</button>
+              </div>
+            </div>
+          </form>
+          <h5 class="text-uppercase mt-4">Follow Us</h5>
+          <div>
+            <a href="#!" class="me-3 text-white"><i class="fab fa-facebook-f"></i></a>
+            <a href="#!" class="me-3 text-white"><i class="fab fa-twitter"></i></a>
+            <a href="#!" class="text-white"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="text-center p-3 bg-secondary">
+        © 2024  Creative developments @nitpatel
+    </div>
+  </footer>
+  
+    
+   
+    
+    
+    <!-- end footer -->
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5/16Daz4oK2mYhlp5G7RIT6p4ab9CE3IQB5s/8Mbs" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <script>
+        // GSAP animation for header text
+        window.onload = function() {
+            const text = document.getElementById('animatedText');
+            gsap.to(text, { 
+                opacity: 1, 
+                duration: 8,
+                y: -80, // Move text up
+                ease: "power2.out"
+            });
+              // GSAP animation for description text
+        gsap.from("#description", {
+            duration: 12,
+            delay: 1, // Delay to make it appear after the header
+            y: 20,
+            opacity: 0,
+            ease: "power2.out",
+        });
+        }
+    </script>
+</body>
+</html>

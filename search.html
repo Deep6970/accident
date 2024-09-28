@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Accidents by Route</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Chart.js for graphs -->
+    <script defer src="search.js"></script> <!-- Use search-specific JS -->
+</head>
+<body class="bg-light">
+
+    <div class="container mt-5">
+        <h1 class="text-center font-weight-bold mb-4">Search Accidents by Route</h1>
+
+        <!-- Search Form -->
+        <div class="card shadow">
+            <div class="card-body">
+                <form id="searchForm" class="needs-validation" novalidate>
+                    <!-- Starting Location -->
+                    <div class="form-group">
+                        <label for="searchStartLocation" class="font-weight-bold">From (Starting Location)</label>
+                        <input type="text" id="searchStartLocation" class="form-control" placeholder="Enter starting location" required>
+                        <div class="invalid-feedback">
+                            Please enter a starting location.
+                        </div>
+                    </div>
+
+                    <!-- Ending Location -->
+                    <div class="form-group">
+                        <label for="searchEndLocation" class="font-weight-bold">To (Ending Location)</label>
+                        <input type="text" id="searchEndLocation" class="form-control" placeholder="Enter ending location" required>
+                        <div class="invalid-feedback">
+                            Please enter an ending location.
+                        </div>
+                    </div>
+
+                    <!-- Search Button -->
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary btn-block">
+                            Search
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Chart Container -->
+        <div class="mt-4">
+            <canvas id="accidentChart" class="mx-auto" width="400" height="200"></canvas>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        // Bootstrap validation for the form
+        (function() {
+            'use strict';
+            var forms = document.querySelectorAll('.needs-validation');
+            Array.prototype.slice.call(forms)
+                .forEach(function(form) {
+                    form.addEventListener('submit', function(event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+        })();
+    </script>
+</body>
+</html>
